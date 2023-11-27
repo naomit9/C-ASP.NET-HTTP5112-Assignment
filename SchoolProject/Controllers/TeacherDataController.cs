@@ -56,8 +56,20 @@ namespace SchoolProject.Controllers
                 int TeacherId = (int)ResultSet["teacherid"];
                 string TeacherFname = (string)ResultSet["teacherfname"];
                 string TeacherLname = (string)ResultSet["teacherlname"];
-                DateTime hireDate = (DateTime)ResultSet["hiredate"];
-                string hireDateString = hireDate.ToShortDateString();
+
+                object hireDateObject = ResultSet["hiredate"];
+                string hireDateString;
+
+                if (hireDateObject != null && hireDateObject != DBNull.Value && hireDateObject is DateTime)
+                {
+                    DateTime hireDate = (DateTime)ResultSet["hiredate"];
+                    hireDateString = hireDate.ToShortDateString();
+                } else
+                {
+                    hireDateString = "N/A";
+                }
+
+               
                 decimal Salary = (decimal)ResultSet["salary"];
 
                 Teacher NewTeacher = new Teacher();
@@ -110,8 +122,20 @@ namespace SchoolProject.Controllers
                 int TeacherId = (int)ResultSet["teacherid"];
                 string TeacherFname = (string)ResultSet["teacherfname"];
                 string TeacherLname = (string)ResultSet["teacherlname"];
-                DateTime hireDate = (DateTime)ResultSet["hiredate"];
-                string hireDateString = hireDate.ToShortDateString();
+
+                object hireDateObject = ResultSet["hiredate"];
+                string hireDateString;
+
+                if (hireDateObject != null && hireDateObject != DBNull.Value && hireDateObject is DateTime)
+                {
+                    DateTime hireDate = (DateTime)ResultSet["hiredate"];
+                    hireDateString = hireDate.ToShortDateString();
+                }
+                else
+                {
+                    hireDateString = "N/A";
+                }
+
                 decimal Salary = (decimal)ResultSet["salary"];
 
                 NewTeacher.TeacherId = TeacherId;
@@ -122,6 +146,67 @@ namespace SchoolProject.Controllers
             }
 
                 return NewTeacher;
+        }
+
+
+
+
+        // This method will delete a teacher from the database
+        // POST: TeacherData/FindTeacher/{id}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <example>POST: /api/TeacherData/DeleteTeacher/3</example>
+        
+        [HttpPost]
+        public void DeleteTeacher(int id)
+        {
+            // Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            // Open the connection between the web server and the database
+            Conn.Open();
+
+            // Establish a new comment or query for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "Delete from teachers where teacherid=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+
+            // Execute a non-select statement
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+        }
+
+        [HttpPost]
+        public void AddTeacher(Teacher NewTeacher)
+        {
+            // Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            // Open the connection between the web server and the database
+            Conn.Open();
+
+            // Establish a new comment or query for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, hiredate, salary, employeenumber) values (@TeacherFname,@TeacherLname,CURRENT_DATE(),@Salary,'T400')";
+            cmd.Parameters.AddWithValue("TeacherFname", NewTeacher.TeacherFname);
+            cmd.Parameters.AddWithValue("TeacherLname", NewTeacher.TeacherLname);
+            cmd.Parameters.AddWithValue("Salary", NewTeacher.Salary);
+
+            cmd.Prepare();
+
+            // Execute a non-select statement
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
         }
     }
 }

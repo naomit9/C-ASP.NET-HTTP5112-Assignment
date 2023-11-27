@@ -5,10 +5,52 @@
     ViewBag.Title = "Show";
 }
 
-<a class="navlink" href="/Teacher/List">Back to Teachers</a>
+<style>
 
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        margin-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
+
+    nav {
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .navlink {
+        float: left;
+    }
+
+    .dellink {
+        color: #f00f;
+        float: right;
+    }
+
+    #containerlist, #containershow {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+
+    .listitem {
+        margin: 10px 0;
+    }
+</style>
 
 <div id="containershow">
+    <nav>
+        <a class="navlink" href="/Teacher/List">Back to Teachers</a>
+        <a class="dellink" href="/Teacher/DeleteConfirm/@Model.TeacherId">Delete</a>
+    </nav>
     <h2>
         @Model.TeacherFname @Model.TeacherLname
     </h2>

@@ -1,0 +1,57 @@
+﻿@model SchoolProject.Models.Teacher
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<style>
+    nav {
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .navlink {
+        float: left;
+    }
+
+    .dellink {
+        color: #f00f;
+        float: right;
+    }
+
+    #containerlist, #containershow {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+
+    .listitem {
+        margin: 10px 0;
+    }
+
+    .delbtn{
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #000000;
+        background-color:#f00f;
+        color:#ffffff;
+        border-radius:3px;
+    }
+</style>
+
+<div id="containershow">
+    <nav>
+        <a class="navlink" style="float:left;" href="/Teacher/Show/@Model.TeacherId">Cancel</a>
+    </nav>
+    <h2>
+        Are you sure you want to delete @Model.TeacherFname @Model.TeacherLname?
+    </h2>
+    <p>
+        This action cannot be undone.
+    </p>
+    <nav>
+        <form method="POST" action="/Teacher/Delete/@Model.TeacherId">
+            <button class="delbtn">Confirm Delete</button>
+        </form>
+    </nav>
+</div>

@@ -26,7 +26,7 @@ namespace SchoolProject.Controllers
         }
 
         // GET: Teacher/Show/{id}
-        public ActionResult Show(int id)
+        public ActionResult Show(int id) 
         {
             TeacherDataController controller = new TeacherDataController();
             Teacher NewTeacher = controller.FindTeacher(id);

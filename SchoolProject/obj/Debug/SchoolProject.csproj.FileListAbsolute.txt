@@ -114,3 +114,9 @@ C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\obj\Debug\SchoolProject.
 C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\obj\Debug\SchoolProject.csproj.CopyComplete
 C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\obj\Debug\SchoolProject.dll
 C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\obj\Debug\SchoolProject.pdb
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\Newtonsoft.Json.Bson.dll
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\System.Web.Cors.dll
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\System.Web.Http.Cors.dll
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\Newtonsoft.Json.Bson.xml
+C:\Users\nhutr\source\repos\SchoolProject\SchoolProject\bin\System.Web.Http.Cors.xml

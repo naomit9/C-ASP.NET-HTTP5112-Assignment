@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using SchoolProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,8 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Web.Http;
+using SchoolProject.Models;
+using System.Web.Http.Cors;
 
 namespace SchoolProject.Controllers
 {
@@ -94,7 +95,7 @@ namespace SchoolProject.Controllers
 
 
         // This method will return a singlular teacher
-        // GET: TeacherData/FindTeacher/{id}
+        // GET: api/TeacherData/FindTeacher/{id}
 
         [HttpGet]
         public Teacher FindTeacher(int id)
@@ -152,7 +153,7 @@ namespace SchoolProject.Controllers
 
 
         // This method will delete a teacher from the database
-        // POST: TeacherData/FindTeacher/{id}
+        // POST: api/TeacherData/DeleteTeacher/{id}
 
         /// <summary>
         /// 
@@ -161,6 +162,9 @@ namespace SchoolProject.Controllers
         /// <example>POST: /api/TeacherData/DeleteTeacher/3</example>
         
         [HttpPost]
+        [Route("api/TeacherData/DeleteTeacher/{id}")]
+        [EnableCors(origins: "http://127.0.0.1:5500", methods: "DELETE", headers: "Content-Type")]
+
         public void DeleteTeacher(int id)
         {
             // Create an instance of a connection

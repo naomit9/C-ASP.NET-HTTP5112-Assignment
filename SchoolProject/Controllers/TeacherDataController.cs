@@ -214,6 +214,15 @@ namespace SchoolProject.Controllers
         }
 
 
+
+        /// <summary>
+        /// Updates a Teacher on the MySQL Database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="TeacherInfo">An object with fields that map to the columns of the teacher's table</param>
+        /// <example>
+        /// POST api/TeacherData/UpdateTeacher/5
+        /// </example>
         public void UpdateTeacher(int id, [FromBody]Teacher TeacherInfo)
         {
             // Create an instance of a connection

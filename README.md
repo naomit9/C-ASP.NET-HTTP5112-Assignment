@@ -9,3 +9,9 @@
 ### Cumulative 2: 
 * To build a minimum viable product (MVP) ‘Add’ as well as ‘Delete’ functionality on the provided teachers mysql table using WebAPI and the MVC architecture pattern
 * Use JavaScript and AJAX to send an XHR request for removing a teacher
+
+### Cumulative 3:
+#### Initiative:
+Show evidence of using a CURL request with a JSON object to update the teacher data through the WebAPI instead of the teacher interface.
+[JSON Object](./teacher.json)
+curl -H "Content-Type:application/json" -d @teacher.json "http://localhost:50682/api/TeacherData/UpdateTeacher/5"

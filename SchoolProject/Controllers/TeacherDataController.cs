@@ -200,10 +200,37 @@ namespace SchoolProject.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, hiredate, salary, employeenumber) values (@TeacherFname,@TeacherLname,CURRENT_DATE(),@Salary,'T400')";
+            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, salary) values (@TeacherFname,@TeacherLname,CURRENT_DATE(),@Salary,'T400')";
             cmd.Parameters.AddWithValue("TeacherFname", NewTeacher.TeacherFname);
             cmd.Parameters.AddWithValue("TeacherLname", NewTeacher.TeacherLname);
             cmd.Parameters.AddWithValue("Salary", NewTeacher.Salary);
+
+            cmd.Prepare();
+
+            // Execute a non-select statement
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+        }
+
+
+        public void UpdateTeacher(int id, [FromBody]Teacher TeacherInfo)
+        {
+            // Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            // Open the connection between the web server and the database
+            Conn.Open();
+
+            // Establish a new comment or query for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "update teachers set teacherfname=@TeacherFname, teacherlname=@TeacherLname, salary=@Salary where teacherid = @TeacherId";
+            cmd.Parameters.AddWithValue("@TeacherFname", TeacherInfo.TeacherFname);
+            cmd.Parameters.AddWithValue("@TeacherLname", TeacherInfo.TeacherLname);
+            cmd.Parameters.AddWithValue("@Salary", TeacherInfo.Salary);
+            cmd.Parameters.AddWithValue("@TeacherId", id);
 
             cmd.Prepare();
 

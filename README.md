@@ -1,10 +1,11 @@
-# Assignments from Web Development Lab Class (HTTP5112)
+# Cumulative Assignments from Web Development Lab Class (HTTP5112)
 
-### Assignment 1: 
-Use ASP.NET WebAPI Controllers to create Application Programming Interfaces(APIs) which implement the described functionality
+### Cumulative 1: 
+* Build a search interface to find a teacher (by name, hiredate, salary)
+* Build the MVP for read functionality on the Teachers table
+* Build the MVP for read functionality on the Students table
+* Build the MVP for read functionality on the Classes table
 
-### Assignment 2: 
-Create a WebAPI Method which solves a J1 Problem and a WebAPI Method which solves a J2 Problem
-
-### Assignment 3: Part 1 School Project
-Build a fully operational Create, Read, Update, and Deleteweb application. Part 1 of this Cumulative project is to build a minimum viable product (MVP)‘Read’ functionality on the provided teachers/students/classes mysql table using WebAPI and the MVCarchitecture pattern.
+### Cumulative 2: 
+* To build a minimum viable product (MVP) ‘Add’ as well as ‘Delete’ functionality on the provided teachers mysql table using WebAPI and the MVC architecture pattern
+* Use JavaScript and AJAX to send an XHR request for removing a teacher

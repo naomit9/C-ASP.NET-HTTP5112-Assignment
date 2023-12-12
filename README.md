@@ -13,5 +13,6 @@
 ### Cumulative 3:
 #### Initiative:
 Show evidence of using a CURL request with a JSON object to update the teacher data through the WebAPI instead of the teacher interface.
+
 [JSON Object](./teacher.json)
-curl -H "Content-Type:application/json" -d @teacher.json "http://localhost:50682/api/TeacherData/UpdateTeacher/5"
+```curl -H "Content-Type:application/json" -d @teacher.json "http://localhost:50682/api/TeacherData/UpdateTeacher/5"```

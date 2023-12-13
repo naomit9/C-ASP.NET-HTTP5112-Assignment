@@ -11,9 +11,26 @@
 * Use JavaScript and AJAX to send an XHR request for removing a teacher
 
 ### Cumulative 3:
+
 #### Initiative:
+
+##### Summary
+
 Show evidence of using a CURL request with a JSON object to update the teacher data through the WebAPI instead of the teacher interface.
+
+##### Parameters
+
+```name="id"```
+
+The teacher's id that map to the id of the teacher's table on MySQL Database
+
+##### Example
 
 [JSON Object](./teacher.json)
 
 ```curl -H "Content-Type:application/json" -d @teacher.json "http://localhost:50682/api/TeacherData/UpdateTeacher/5"```
+
+
+##### Returns
+
+The teacher's first name, last name and salary are updated according to the JSON Object.
